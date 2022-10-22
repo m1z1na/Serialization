@@ -1,10 +1,10 @@
 
 import java.io.*;
 
-public class Main  {
+public class Main {
 
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
 
 
         User u1 = new User("Ivan", "mail@ru");
@@ -22,7 +22,7 @@ public class Main  {
         }
 
 
-        User u2  = null;
+        User u2 = null;
         try {
             FileInputStream fileIn = new FileInputStream("C:\\Users\\User\\Desktop\\прог\\тпир\\user.ser");
             ObjectInputStream in = new ObjectInputStream(fileIn);
@@ -43,10 +43,8 @@ public class Main  {
         System.out.println("Почта: " + u2.email);
 
 
-
-//            String begin = "C:\\Users\\User\\Desktop\\прог\\тпир\\test.xlsx\\xl";
-//            processFilesFromFolder(new File(begin), begin, 0);
-
+        String begin = "C:\\Users\\User\\Desktop\\прог\\тпир\\test.xlsx\\xl";
+        processFilesFromFolder(new File(begin), begin, 0);
     }
 
     private static void processFilesFromFolder(File setEntry, String path, Integer counter) {
@@ -54,12 +52,7 @@ public class Main  {
         counter = counter + 1;
         if (setEntry.isDirectory()) {
 
-            String newpath;
-            if (counter > 1) {
-                newpath = path + "\\" + setEntry.getName();
-            } else {
-                newpath = path;
-            }
+            String newpath = (counter > 1) ? path + "\\" + setEntry.getName() : path;
 
             File folder = new File(newpath);
             File[] folderEntries = folder.listFiles();
